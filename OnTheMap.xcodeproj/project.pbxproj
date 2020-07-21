@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2656DC0724C68676006947EA /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0624C68676006947EA /* UdacityClient.swift */; };
+		2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0A24C75A30006947EA /* loginResponse.swift */; };
 		26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DAD24C63D340014FBB6 /* AppDelegate.swift */; };
 		26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */; };
 		26C50DB224C63D340014FBB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DB124C63D340014FBB6 /* ViewController.swift */; };
@@ -17,10 +19,11 @@
 		26C50DCE24C6480F0014FBB6 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DCD24C6480F0014FBB6 /* LoginButton.swift */; };
 		26C50DD224C648410014FBB6 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DD124C648410014FBB6 /* LoginTextField.swift */; };
 		26C50DD424C648540014FBB6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C50DD324C648540014FBB6 /* Colors.xcassets */; };
-		26C50DD624C64CA10014FBB6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DD524C64CA10014FBB6 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2656DC0624C68676006947EA /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		2656DC0A24C75A30006947EA /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
 		26C50DAA24C63D340014FBB6 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C50DAD24C63D340014FBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +36,6 @@
 		26C50DCD24C6480F0014FBB6 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		26C50DD124C648410014FBB6 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		26C50DD324C648540014FBB6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		26C50DD524C64CA10014FBB6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2656DC0824C68857006947EA /* Udacity Responses */ = {
+			isa = PBXGroup;
+			children = (
+				2656DC0A24C75A30006947EA /* loginResponse.swift */,
+			);
+			path = "Udacity Responses";
+			sourceTree = "<group>";
+		};
+		2656DC0924C6886D006947EA /* Udacity Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Udacity Requests";
+			sourceTree = "<group>";
+		};
 		26C50DA124C63D340014FBB6 = {
 			isa = PBXGroup;
 			children = (
@@ -66,9 +83,12 @@
 		26C50DAC24C63D340014FBB6 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				2656DC0924C6886D006947EA /* Udacity Requests */,
+				2656DC0824C68857006947EA /* Udacity Responses */,
 				26C50DAD24C63D340014FBB6 /* AppDelegate.swift */,
 				26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */,
 				26C50DB124C63D340014FBB6 /* ViewController.swift */,
+				2656DC0624C68676006947EA /* UdacityClient.swift */,
 				26C50DD724C6528F0014FBB6 /* View */,
 				26C50DD824C652D50014FBB6 /* Assests */,
 				26C50DBB24C63D360014FBB6 /* Info.plist */,
@@ -79,7 +99,6 @@
 		26C50DD724C6528F0014FBB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				26C50DD524C64CA10014FBB6 /* GradientView.swift */,
 				26C50DCB24C647E90014FBB6 /* Colors.swift */,
 				26C50DCD24C6480F0014FBB6 /* LoginButton.swift */,
 				26C50DD124C648410014FBB6 /* LoginTextField.swift */,
@@ -170,11 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */,
+				2656DC0724C68676006947EA /* UdacityClient.swift in Sources */,
 				26C50DCE24C6480F0014FBB6 /* LoginButton.swift in Sources */,
 				26C50DB224C63D340014FBB6 /* ViewController.swift in Sources */,
 				26C50DCC24C647E90014FBB6 /* Colors.swift in Sources */,
 				26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */,
-				26C50DD624C64CA10014FBB6 /* GradientView.swift in Sources */,
 				26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */,
 				26C50DD224C648410014FBB6 /* LoginTextField.swift in Sources */,
 			);
