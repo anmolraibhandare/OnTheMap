@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2656DC0724C68676006947EA /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0624C68676006947EA /* UdacityClient.swift */; };
 		2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0A24C75A30006947EA /* loginResponse.swift */; };
+		2656DC0F24C7B336006947EA /* userDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0E24C7B336006947EA /* userDataResponse.swift */; };
 		26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DAD24C63D340014FBB6 /* AppDelegate.swift */; };
 		26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */; };
 		26C50DB224C63D340014FBB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DB124C63D340014FBB6 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		2656DC0624C68676006947EA /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		2656DC0A24C75A30006947EA /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
+		2656DC0E24C7B336006947EA /* userDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDataResponse.swift; sourceTree = "<group>"; };
 		26C50DAA24C63D340014FBB6 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C50DAD24C63D340014FBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				2656DC0A24C75A30006947EA /* loginResponse.swift */,
+				2656DC0E24C7B336006947EA /* userDataResponse.swift */,
 			);
 			path = "Udacity Responses";
 			sourceTree = "<group>";
@@ -62,6 +65,23 @@
 			children = (
 			);
 			path = "Udacity Requests";
+			sourceTree = "<group>";
+		};
+		2656DC0C24C78230006947EA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				26C50DB124C63D340014FBB6 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2656DC0D24C78263006947EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2656DC0924C6886D006947EA /* Udacity Requests */,
+				2656DC0824C68857006947EA /* Udacity Responses */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		26C50DA124C63D340014FBB6 = {
@@ -83,15 +103,14 @@
 		26C50DAC24C63D340014FBB6 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				2656DC0924C6886D006947EA /* Udacity Requests */,
-				2656DC0824C68857006947EA /* Udacity Responses */,
+				26C50DBB24C63D360014FBB6 /* Info.plist */,
 				26C50DAD24C63D340014FBB6 /* AppDelegate.swift */,
 				26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */,
-				26C50DB124C63D340014FBB6 /* ViewController.swift */,
+				2656DC0D24C78263006947EA /* Model */,
 				2656DC0624C68676006947EA /* UdacityClient.swift */,
 				26C50DD724C6528F0014FBB6 /* View */,
+				2656DC0C24C78230006947EA /* Controller */,
 				26C50DD824C652D50014FBB6 /* Assests */,
-				26C50DBB24C63D360014FBB6 /* Info.plist */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -195,6 +214,7 @@
 				26C50DB224C63D340014FBB6 /* ViewController.swift in Sources */,
 				26C50DCC24C647E90014FBB6 /* Colors.swift in Sources */,
 				26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */,
+				2656DC0F24C7B336006947EA /* userDataResponse.swift in Sources */,
 				26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */,
 				26C50DD224C648410014FBB6 /* LoginTextField.swift in Sources */,
 			);

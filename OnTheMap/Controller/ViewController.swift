@@ -26,6 +26,24 @@ class ViewController: UIViewController {
         passwordTextField.text = ""
     }
 
-
+    @IBAction func loginTapped(_ sender: Any) {
+        UdacityClient.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: handleloginResponse(success:error:))
+    }
+    
+    @IBAction func signUpTapped(_ sender: Any) {
+        
+    }
+    
+    func handleloginResponse(success: Bool, error: Error?) {
+        if success{
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "login", sender: nil)
+            }
+        } else {
+            
+        }
+    }
+    
+    
 }
 

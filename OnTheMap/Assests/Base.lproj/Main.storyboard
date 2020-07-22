@@ -16,18 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="14" id="aYV-Xq-GQd">
-                                <rect key="frame" x="35" y="333" width="343" height="232"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" id="aYV-Xq-GQd">
+                                <rect key="frame" x="35" y="355" width="343" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="305" verticalHuggingPriority="251" text="Login with Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-FP-IY0">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="PrimaryDark"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cmk-cr-B2h" customClass="LoginTextField" customModule="OnTheMap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14" width="343" height="43"/>
+                                        <rect key="frame" x="0.0" y="27" width="343" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="aAp-0y-7rs"/>
                                         </constraints>
@@ -35,7 +35,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qEq-3X-VVI" customClass="LoginTextField" customModule="OnTheMap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71" width="343" height="43"/>
+                                        <rect key="frame" x="0.0" y="77" width="343" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Jj4-tz-1Ox"/>
                                         </constraints>
@@ -43,7 +43,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXs-lu-Qcv" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="128" width="343" height="43"/>
+                                        <rect key="frame" x="0.0" y="127" width="343" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Dcr-Jv-yQh"/>
                                         </constraints>
@@ -51,19 +51,28 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i0p-qc-xcJ"/>
+                                        </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="scs-EV-5Ju">
-                                        <rect key="frame" x="0.0" y="185" width="343" height="47"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="scs-EV-5Ju">
+                                        <rect key="frame" x="0.0" y="177" width="343" height="51"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWK-ir-k8K">
-                                                <rect key="frame" x="82" y="0.0" width="179" height="16.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="160.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3Z-Np-C21">
-                                                <rect key="frame" x="144.5" y="24.5" width="54" height="22.5"/>
-                                                <state key="normal" title="Sign Up"/>
+                                                <rect key="frame" x="146" y="22" width="51" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" name="PrimaryDark"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iqu-6f-hdj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -81,7 +90,7 @@
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="Eg8-QB-YQs">
-                                <rect key="frame" x="153" y="222" width="107" height="83"/>
+                                <rect key="frame" x="154" y="245" width="107" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -98,11 +107,12 @@
                         <outlet property="loginButton" destination="XXs-lu-Qcv" id="hPh-Fh-kLT"/>
                         <outlet property="loginViaFacebookButton" destination="7et-78-QjW" id="vYT-E5-wvL"/>
                         <outlet property="passwordTextField" destination="qEq-3X-VVI" id="D3R-Mu-hCb"/>
+                        <segue destination="Eqf-e6-E0t" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="M1p-75-Lb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
+            <point key="canvasLocation" x="-33" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4lr-6j-dgz">
@@ -121,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="1696" y="-206"/>
         </scene>
-        <!--View Controller-->
+        <!--On the Map-->
         <scene sceneID="bdj-iV-bMp">
             <objects>
                 <viewController id="nY6-Sh-355" sceneMemberID="viewController">
@@ -130,23 +140,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Db-HF-Bcf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="757"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="vwB-g4-kTh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cSd-wR-LPn"/>
+                    <navigationItem key="navigationItem" title="On the Map" id="cSd-wR-LPn">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Qw3-vX-Hth"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_addpin" id="u5c-9d-Mem"/>
+                            <barButtonItem image="icon_refresh" id="nH3-zD-qXE"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kT-aN-sqq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648" y="-206"/>
+            <point key="canvasLocation" x="2647.826086956522" y="-206.25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="p48-14-5CF">
             <objects>
                 <tabBarController id="Eqf-e6-E0t" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2oe-sP-mCS"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="axF-5l-KsO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -191,7 +208,7 @@
             </objects>
             <point key="canvasLocation" x="1725" y="532"/>
         </scene>
-        <!--Table View Controller-->
+        <!--On the Map-->
         <scene sceneID="kFL-ws-Yci">
             <objects>
                 <tableViewController id="7Aj-xi-43J" sceneMemberID="viewController">
@@ -214,7 +231,13 @@
                             <outlet property="delegate" destination="7Aj-xi-43J" id="LOq-xZ-QFV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RXL-YV-Zc4"/>
+                    <navigationItem key="navigationItem" title="On the Map" id="RXL-YV-Zc4">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Jtc-sg-9t3"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_addpin" id="O7l-eU-t5b"/>
+                            <barButtonItem image="icon_refresh" id="P24-QY-feu"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46E-gA-15D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,11 +245,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
+        <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="PrimaryDark">
-            <color red="0.32121235129999998" green="0.69898897410000005" blue="0.87845712899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.32100000977516174" green="0.69900000095367432" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
