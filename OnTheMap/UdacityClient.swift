@@ -24,12 +24,9 @@ class UdacityClient {
         case login
         case signUp
         case getData
-        case logout
         case getStudentLocation
         case addlocation
         case updateLocation
-        case facebookAuth
-        
         
         // String values of Endpoints including base and apiKeyParam
         var stringValue: String {
@@ -44,9 +41,6 @@ class UdacityClient {
             case .getData:
                 return Endpoints.base + "/users/" + Auth.key
                 
-            case .logout:
-                return Endpoints.base + "/session"
-                
             case .getStudentLocation:
                 return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
                 
@@ -55,9 +49,6 @@ class UdacityClient {
                 
             case .updateLocation:
                 return Endpoints.base + "/StudentLocation/" + Auth.ObjectId
-                
-            case .facebookAuth:
-                return ""
 
             }
         }
@@ -67,18 +58,18 @@ class UdacityClient {
         }
     }
     
-//    // MARK: Get Student Location (GET)
-//
-//    var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt")!)
-//    let session = URLSession.shared
-//    let task = session.dataTask(with: request) { data, response, error in
-//      if error != nil { // Handle error...
-//          return
-//      }
-//      print(String(data: data!, encoding: .utf8)!)
-//    }
-//    task.resume()
-//
+    // MARK: Get Student Location (GET)
+    
+    class func getStudentLocation(completion: @escaping ([StudentLocation]?, Error?) -> Void){
+        taskForGETRequest(url: Endpoints.getStudentLocation.url, apiType: "Parse", responseType: studentLocationResponse.self) { (response, error) in
+            if let response = response {
+                completion(response.results, nil)
+            } else {
+                completion([], error)
+            }
+        }
+    }
+
 //    // MARK: Post Student Location (POST)
 //
 //    var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!)
@@ -138,6 +129,7 @@ class UdacityClient {
             if let response = response{
                 Auth.firstName = response.firstName
                 Auth.lastName = response.lastName
+                print("First name: \(response.firstName) Last name: \(response.lastName) Nick name: \(response.nickName)")
                 completion(true, nil)
             } else {
                 completion(false, error)
@@ -148,7 +140,7 @@ class UdacityClient {
     // MARK: Logout (DELETE)
     
     class func logout(completion: @escaping () -> Void) {
-        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
+        var request = URLRequest(url: Endpoints.login.url)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
         let sharedCookieStorage = HTTPCookieStorage.shared
@@ -180,6 +172,7 @@ class UdacityClient {
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         } else {
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in

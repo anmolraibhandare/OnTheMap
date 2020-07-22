@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2656DC0724C68676006947EA /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0624C68676006947EA /* UdacityClient.swift */; };
 		2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0A24C75A30006947EA /* loginResponse.swift */; };
 		2656DC0F24C7B336006947EA /* userDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0E24C7B336006947EA /* userDataResponse.swift */; };
+		2656DC1224C89C68006947EA /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 2656DC1124C89C68006947EA /* FacebookLogin */; };
+		2656DC1424C8C7E8006947EA /* studentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1324C8C7E8006947EA /* studentLocationResponse.swift */; };
+		2656DC1624C8C86C006947EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1524C8C86C006947EA /* StudentLocation.swift */; };
+		2656DC1824C8CDD8006947EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1724C8CDD8006947EA /* MapViewController.swift */; };
 		26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DAD24C63D340014FBB6 /* AppDelegate.swift */; };
 		26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */; };
 		26C50DB224C63D340014FBB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C50DB124C63D340014FBB6 /* ViewController.swift */; };
@@ -26,6 +30,9 @@
 		2656DC0624C68676006947EA /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		2656DC0A24C75A30006947EA /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
 		2656DC0E24C7B336006947EA /* userDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDataResponse.swift; sourceTree = "<group>"; };
+		2656DC1324C8C7E8006947EA /* studentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentLocationResponse.swift; sourceTree = "<group>"; };
+		2656DC1524C8C86C006947EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		2656DC1724C8CDD8006947EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		26C50DAA24C63D340014FBB6 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C50DAD24C63D340014FBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26C50DAF24C63D340014FBB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2656DC1224C89C68006947EA /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +64,7 @@
 			children = (
 				2656DC0A24C75A30006947EA /* loginResponse.swift */,
 				2656DC0E24C7B336006947EA /* userDataResponse.swift */,
+				2656DC1324C8C7E8006947EA /* studentLocationResponse.swift */,
 			);
 			path = "Udacity Responses";
 			sourceTree = "<group>";
@@ -63,6 +72,7 @@
 		2656DC0924C6886D006947EA /* Udacity Requests */ = {
 			isa = PBXGroup;
 			children = (
+				2656DC1524C8C86C006947EA /* StudentLocation.swift */,
 			);
 			path = "Udacity Requests";
 			sourceTree = "<group>";
@@ -71,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				26C50DB124C63D340014FBB6 /* ViewController.swift */,
+				2656DC1724C8CDD8006947EA /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +163,9 @@
 			dependencies = (
 			);
 			name = OnTheMap;
+			packageProductDependencies = (
+				2656DC1124C89C68006947EA /* FacebookLogin */,
+			);
 			productName = OnTheMap;
 			productReference = 26C50DAA24C63D340014FBB6 /* OnTheMap.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +194,9 @@
 				Base,
 			);
 			mainGroup = 26C50DA124C63D340014FBB6;
+			packageReferences = (
+				2656DC1024C89C67006947EA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 26C50DAB24C63D340014FBB6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -209,14 +226,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */,
+				2656DC1624C8C86C006947EA /* StudentLocation.swift in Sources */,
 				2656DC0724C68676006947EA /* UdacityClient.swift in Sources */,
 				26C50DCE24C6480F0014FBB6 /* LoginButton.swift in Sources */,
 				26C50DB224C63D340014FBB6 /* ViewController.swift in Sources */,
 				26C50DCC24C647E90014FBB6 /* Colors.swift in Sources */,
 				26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */,
+				2656DC1824C8CDD8006947EA /* MapViewController.swift in Sources */,
 				2656DC0F24C7B336006947EA /* userDataResponse.swift in Sources */,
 				26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */,
 				26C50DD224C648410014FBB6 /* LoginTextField.swift in Sources */,
+				2656DC1424C8C7E8006947EA /* studentLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2656DC1024C89C67006947EA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2656DC1124C89C68006947EA /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2656DC1024C89C67006947EA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26C50DA224C63D340014FBB6 /* Project object */;
 }

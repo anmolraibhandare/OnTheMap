@@ -15,7 +15,7 @@ class LoginTextField: UITextField {
         super.awakeFromNib()
         
         layer.cornerRadius = 5
-        tintColor = UIColor.white
+        tintColor = UIColor.gray
         backgroundColor = UIColor.primaryLight
 
     }
