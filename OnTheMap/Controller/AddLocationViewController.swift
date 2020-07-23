@@ -14,12 +14,15 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Outlets and properties
     
-    @IBOutlet weak var locationTextField: LoginTextField!
-    @IBOutlet weak var linkTextField: LoginTextField!
-    @IBOutlet weak var findLocationButton: LoginButton!
+
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var findLocationButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var objectId: String?
+    var locationTextFieldEmpty = true
+    var linkTextFieldEmpty = true
     
     // MARK: Life Cycle
     
@@ -27,10 +30,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         locationTextField.delegate = self
         linkTextField.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
         
     }
     
@@ -43,14 +42,16 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     // MARK: Find entered location
     
     @IBAction func findAddLocation(_ sender: Any) {
+        setFindingLocation(true)
         let newLocation = locationTextField.text
+        
         guard let url = URL(string: self.linkTextField.text!), UIApplication.shared.canOpenURL(url)
             else {
-                    print("Invalid Input!")
+                    showLoginFailure(title: "Invalid URL", message: "Please provide a correct URL")
+                    setFindingLocation(false)
                     return
-        }
+            }
         geoPosition(newLocation: newLocation ?? "")
-        
     }
       
     // MARK: Find new location geocode
@@ -58,7 +59,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     private func geoPosition(newLocation: String) {
         CLGeocoder().geocodeAddressString(newLocation) { (placemarker, error) in
             if let error = error {
-                print("Location not found!")
+                self.showLoginFailure(title: "Location Invalid", message: error.localizedDescription)
+                self.setFindingLocation(false)
             } else {
                 var location: CLLocation?
                 
@@ -69,7 +71,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 if let location = location {
                     self.placeNewLocation(location.coordinate)
                 } else {
-                    print("Error!")
+                    self.showLoginFailure(title: "Error", message: "Please try again!")
+                    self.setFindingLocation(false)
                 }
             }
         }
@@ -105,11 +108,77 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         return StudentLocation(info)
     }
     
+    func setFindingLocation(_ findLocation: Bool){
+        if findLocation {
+            self.activityIndicator.startAnimating()
+            self.findLocationButton.isEnabled = false
+        } else{
+            self.activityIndicator.stopAnimating()
+            self.findLocationButton.isEnabled = true
+        }
+        self.locationTextField.isEnabled = !findLocation
+        self.linkTextField.isEnabled = !findLocation
+        self.findLocationButton.isEnabled = !findLocation
+    }
+    
+    // MARK: Check if TextFields are empty
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == locationTextField {
+            let text = locationTextField.text ?? ""
+            guard let stringRange = Range(range, in: text) else {
+                return false
+            }
+            let nextText = text.replacingCharacters(in: stringRange, with: string)
+            
+            if nextText.isEmpty && nextText == "" {
+                locationTextFieldEmpty = true
+            } else {
+                locationTextFieldEmpty = false
+            }
+        }
+        if textField == linkTextField {
+            let text = linkTextField.text ?? ""
+            guard let stringRange = Range(range, in: text) else {
+                return false
+            }
+            let nextText = text.replacingCharacters(in: stringRange, with: string)
+            
+            if nextText.isEmpty && nextText == "" {
+                linkTextFieldEmpty = true
+            } else {
+                linkTextFieldEmpty = false
+            }
+        }
         
-    // MARK: - UITextField Delegate methods
+        if locationTextFieldEmpty == false && linkTextFieldEmpty == false {
+            findLocationButton.isEnabled = true
+        } else {
+            findLocationButton.isEnabled = true
+        }
+        
+        return true
+    }
     
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        findLocationButton.isEnabled = false
+        if textField == locationTextField {
+            locationTextFieldEmpty = true
+        }
+        if textField == linkTextField {
+            linkTextFieldEmpty = true
+        }
+        return true
+    }
     
-    
-    
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            text.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            findAddLocation(findLocationButton)
+        }
+        return true
+    }
+
 }

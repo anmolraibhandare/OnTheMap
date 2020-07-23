@@ -17,6 +17,8 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var finishButton: LoginButton!
+
     var studentInformation: StudentLocation?
     
     //MARK: Life Cycle
@@ -44,6 +46,7 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
     //MARK: Finish button tapped
     
     @IBAction func finishAddLocation(_ sender: Any) {
+        setFinishAdding(true)
         // If the student information is obtained post the new student info
         if let studentLocation = studentInformation {
             if UdacityClient.Auth.ObjectId == "" {
@@ -51,11 +54,13 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
                     if success {
                         DispatchQueue.main.async {
                             // Dismiss if the information is successfully entered
+                            self.setFinishAdding(true)
                             self.dismiss(animated: true, completion: nil)
                         }
                     } else {
                         DispatchQueue.main.async {
                             self.showLoginFailure(title: "Error", message: error?.localizedDescription ?? "")
+                            self.setFinishAdding(false)
                         }
                     }
                 }
@@ -65,11 +70,13 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
                     UdacityClient.updateStudentLocation(location: studentLocation) { (success, error) in
                         if success {
                             DispatchQueue.main.async {
+                                self.setFinishAdding(true)
                                 self.dismiss(animated: true, completion: nil)
                             }
                         } else {
                             DispatchQueue.main.async {
                                 self.showLoginFailure(title: "Error", message: error?.localizedDescription ?? "")
+                                self.setFinishAdding(false)
                             }
                         }
                     }
@@ -104,6 +111,17 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
             mapView.showAnnotations(mapView.annotations, animated: true)
             
         }
+    }
+    
+    func setFinishAdding(_ finishAdding: Bool){
+        if finishAdding {
+            activityIndicator.startAnimating()
+            finishButton.isEnabled = true
+        } else{
+            activityIndicator.stopAnimating()
+            finishButton.isEnabled = false
+        }
+        finishButton.isEnabled = !finishAdding
     }
         
     

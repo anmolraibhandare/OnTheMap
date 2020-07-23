@@ -22,6 +22,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     }
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         print("Login Successful")
+        self.performSegue(withIdentifier: "login", sender: nil)
     }
     
     // MARK: Outlets and Properties
@@ -41,19 +42,11 @@ class ViewController: UIViewController, LoginButtonDelegate {
         loginButton.frame = CGRect(x: 35, y: 775, width: view.frame.width - 75, height: 45)
         view.addSubview(loginButton)
         
-        // If facebook login is successful, token is generated
         if let token = AccessToken.current {
-            // User is logged in, go to next view controller
-            fetchprofile()
-            goToDifferentView()
+            // If the user is already logged in, fetch profile and perform segue.
+            self.performSegue(withIdentifier: "login", sender: nil)
         }
         loginButton.permissions = ["public_profile", "email"]
-    }
-    
-    // Once logged in, go to nextViewController
-    func goToDifferentView() {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     // Fetch user profile

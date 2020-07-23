@@ -244,7 +244,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="location"/>
                                         <connections>
-                                            <outlet property="delegate" destination="aPe-Dl-2FJ" id="MYh-zJ-AyS"/>
+                                            <outlet property="delegate" destination="aPe-Dl-2FJ" id="Q1M-KC-Fg3"/>
                                         </connections>
                                     </textField>
                                     <textField contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Link" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-Q5-Mon" customClass="LoginTextField" customModule="OnTheMap" customModuleProvider="target">
@@ -255,7 +255,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                         <connections>
-                                            <outlet property="delegate" destination="aPe-Dl-2FJ" id="fqW-4o-NyU"/>
+                                            <outlet property="delegate" destination="aPe-Dl-2FJ" id="uv3-re-fUK"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyA-9Q-nBV" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
@@ -291,8 +291,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="O5Z-Oa-3Pa" id="Dyd-hU-cRw"/>
-                        <outlet property="linkTextField" destination="5Qr-Q5-Mon" id="mvp-AC-xpX"/>
-                        <outlet property="locationTextField" destination="VXC-7Y-EmO" id="Tgt-1A-QzW"/>
+                        <outlet property="findLocationButton" destination="xyA-9Q-nBV" id="Dhy-mB-f6Q"/>
+                        <outlet property="linkTextField" destination="5Qr-Q5-Mon" id="uPf-eY-jNi"/>
+                        <outlet property="locationTextField" destination="VXC-7Y-EmO" id="vbh-ih-4Xp"/>
                         <segue destination="Fho-LQ-3YD" kind="show" identifier="viewInMap" id="eg9-xr-vdj"/>
                     </connections>
                 </viewController>
@@ -344,6 +345,7 @@
                     <navigationItem key="navigationItem" id="FKj-PZ-fB7"/>
                     <connections>
                         <outlet property="activityIndicator" destination="luI-5I-nlJ" id="RjE-KN-9Dj"/>
+                        <outlet property="finishButton" destination="DIA-vv-Up4" id="jtk-H5-q5w"/>
                         <outlet property="mapView" destination="jjo-Dk-2nz" id="Qkr-y1-VzJ"/>
                     </connections>
                 </viewController>
