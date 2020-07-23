@@ -14,5 +14,15 @@ extension UIViewController {
     @IBAction func addLocationButton(_ enabled: Bool, button: UIButton){
         performSegue(withIdentifier: "addLocationButton", sender: nil)
     }
+    
+    @IBAction func logout(_ sender: Any) {
+        UdacityClient.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
 
 }

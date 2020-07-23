@@ -24,14 +24,7 @@ class ListViewController: UITableViewController {
         super.viewDidAppear(animated)
         getStudentList()
     }
-    
-    @IBAction func logout(_ sender: Any) {
-        UdacityClient.logout {
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
+
     
     @IBAction func refresh(_ sender: Any) {
         getStudentList()

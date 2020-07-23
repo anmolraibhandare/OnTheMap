@@ -83,11 +83,16 @@
                                 <rect key="frame" x="154" y="245" width="107" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4UY-BP-sf0">
+                                <rect key="frame" x="197" y="597" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="4UY-BP-sf0" id="WkX-EE-GVn"/>
                         <outlet property="emailTextField" destination="cmk-cr-B2h" id="4Od-sf-laD"/>
                         <outlet property="loginButton" destination="XXs-lu-Qcv" id="hPh-Fh-kLT"/>
                         <outlet property="passwordTextField" destination="qEq-3X-VVI" id="D3R-Mu-hCb"/>
@@ -118,12 +123,12 @@
         <!--Map View Controller-->
         <scene sceneID="bdj-iV-bMp">
             <objects>
-                <viewController title="Map View Controller" id="nY6-Sh-355" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="Map View Controller" id="nY6-Sh-355" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eeR-y2-jsz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="gUj-6E-zEB">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="gUj-6E-zEB">
                                 <rect key="frame" x="197" y="440" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
@@ -146,7 +151,7 @@
                         <viewLayoutGuide key="safeArea" id="vwB-g4-kTh"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="cSd-wR-LPn">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Qw3-vX-Hth">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Qw3-vX-Hth" userLabel="logout">
                             <connections>
                                 <action selector="logout:" destination="nY6-Sh-355" id="wf1-0O-y9p"/>
                             </connections>
@@ -269,6 +274,10 @@
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="MQH-0y-2tO"/>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="O5Z-Oa-3Pa">
+                                <rect key="frame" x="197" y="545" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="hYk-Om-sH0"/>
@@ -302,7 +311,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="delegate" destination="Fho-LQ-3YD" id="f7H-y7-wej"/>
+                                    <outlet property="delegate" destination="Fho-LQ-3YD" id="avk-FG-DIE"/>
                                     <outletCollection property="gestureRecognizers" destination="lmD-Dm-pVM" appends="YES" id="NSw-Gq-8tP"/>
                                 </connections>
                             </mapView>
@@ -317,6 +326,10 @@
                                     <action selector="finishAddLocation:" destination="Fho-LQ-3YD" eventType="touchUpInside" id="HQ5-Ak-eKK"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="luI-5I-nlJ">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -357,7 +370,7 @@
         <!--List View Controller-->
         <scene sceneID="kFL-ws-Yci">
             <objects>
-                <tableViewController title="List View Controller" id="7Aj-xi-43J" customClass="ListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListViewController" title="List View Controller" id="7Aj-xi-43J" customClass="ListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Ko-rM-c5K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,7 +411,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On the Map" id="RXL-YV-Zc4">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Jtc-sg-9t3">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Jtc-sg-9t3" userLabel="logout">
                             <connections>
                                 <action selector="logout:" destination="7Aj-xi-43J" id="n6B-iT-e48"/>
                             </connections>

@@ -11,11 +11,17 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
+    
+    // MARK: Outlets and Properties
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var locations = [StudentLocation]()
     var annotations = [MKPointAnnotation]()
+
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +31,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         getStudentPins()
     }
     
+    
+    // MARK: Refresh button tapped
+    
     @IBAction func refresh(_ sender: Any) {
         getStudentPins()
     }
     
-    @IBAction func logout(_ sender: Any) {
-        self.activityIndicator.startAnimating()
-        UdacityClient.logout {
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-                self.activityIndicator.stopAnimating()
-            }
-        }
-    }
-    
+    //
     func getStudentPins() {
         self.activityIndicator.startAnimating()
         UdacityClient.getStudentLocation { location, error in
@@ -51,8 +51,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 
-//                let first = dictionary.firstName
-//                let last = dictionary.lastName
                 let space = " "
                 let name = dictionary.firstName + space + dictionary.lastName
                 let mediaURL = dictionary.mediaURL
@@ -75,9 +73,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - MKMapViewDelegate
 
-    // Here we create a view with a "right callout accessory view". You might choose to look into other
-    // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
-    // method in TableViewDataSource.
+    // Here we create a view with a "right callout accessory view" an generate a styled pin.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
