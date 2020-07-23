@@ -31,14 +31,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         getStudentPins()
     }
     
-    
     // MARK: Refresh button tapped
     
     @IBAction func refresh(_ sender: Any) {
         getStudentPins()
     }
     
-    //
+    // MARK: Get all student pins
+    
     func getStudentPins() {
         self.activityIndicator.startAnimating()
         UdacityClient.getStudentLocation { location, error in
@@ -66,7 +66,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             DispatchQueue.main.async {
                 self.mapView.addAnnotations(self.annotations)
                 self.activityIndicator.stopAnimating()
-                self.activityIndicator.hidesWhenStopped = true
             }
         }
     }

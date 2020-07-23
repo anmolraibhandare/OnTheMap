@@ -274,8 +274,8 @@
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="MQH-0y-2tO"/>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="O5Z-Oa-3Pa">
-                                <rect key="frame" x="197" y="545" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="O5Z-Oa-3Pa">
+                                <rect key="frame" x="196" y="557" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -290,6 +290,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="O5Z-Oa-3Pa" id="Dyd-hU-cRw"/>
                         <outlet property="linkTextField" destination="5Qr-Q5-Mon" id="mvp-AC-xpX"/>
                         <outlet property="locationTextField" destination="VXC-7Y-EmO" id="Tgt-1A-QzW"/>
                         <segue destination="Fho-LQ-3YD" kind="show" identifier="viewInMap" id="eg9-xr-vdj"/>
@@ -326,7 +327,7 @@
                                     <action selector="finishAddLocation:" destination="Fho-LQ-3YD" eventType="touchUpInside" id="HQ5-Ak-eKK"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="luI-5I-nlJ">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="luI-5I-nlJ">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
@@ -342,6 +343,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FKj-PZ-fB7"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="luI-5I-nlJ" id="RjE-KN-9Dj"/>
                         <outlet property="mapView" destination="jjo-Dk-2nz" id="Qkr-y1-VzJ"/>
                     </connections>
                 </viewController>

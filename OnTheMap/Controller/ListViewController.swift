@@ -12,9 +12,12 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
-    @IBOutlet var studentListView: UITableView!
+    // MARK: Outlets and Properties
     
+    @IBOutlet var studentListView: UITableView!
     var students = [StudentLocation]()
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +28,13 @@ class ListViewController: UITableViewController {
         getStudentList()
     }
 
+    // MARK: Refresh button tapped
     
     @IBAction func refresh(_ sender: Any) {
         getStudentList()
     }
+    
+    // MARK: Get all student list
     
     func getStudentList() {
         UdacityClient.getStudentLocation { (students, error) in
@@ -39,6 +45,9 @@ class ListViewController: UITableViewController {
         }
     }
         
+    
+    // MARK: - UITableViewDelegate methods
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

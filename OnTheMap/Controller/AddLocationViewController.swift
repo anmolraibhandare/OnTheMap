@@ -17,6 +17,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var locationTextField: LoginTextField!
     @IBOutlet weak var linkTextField: LoginTextField!
     @IBOutlet weak var findLocationButton: LoginButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var objectId: String?
     
@@ -78,9 +79,13 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     private func placeNewLocation(_ coordinate: CLLocationCoordinate2D) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddLocationViewController") as! FinishAddLocationViewController
+        // send coordinate to create student information
         controller.studentInformation = createStudentInfo(coordinate)
+        // controller now contains the information in the form of StudentLocation (JSON response)
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    // MARK: Create student information of the user to push in next controller
     
     private func createStudentInfo(_ coordinate: CLLocationCoordinate2D) -> StudentLocation {
         var info = [
@@ -95,14 +100,14 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         
         if let objectId = objectId {
             info["objectId"] = objectId as AnyObject
-            print("object Id:: " + "\(objectId)")
+            print("object Id: " + "\(objectId)")
         }
         return StudentLocation(info)
     }
     
-    // MARK: UITextField Delegate methods
+        
+    // MARK: - UITextField Delegate methods
     
-   
     
     
     

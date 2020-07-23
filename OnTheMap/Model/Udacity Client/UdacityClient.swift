@@ -61,7 +61,7 @@ class UdacityClient {
     // MARK: Get Student Location (GET)
     
     class func getStudentLocation(completion: @escaping ([StudentLocation]?, Error?) -> Void){
-        taskForGETRequest(url: Endpoints.getStudentLocation.url, apiType: "Parse", responseType: studentLocationResponse.self) { (response, error) in
+        taskForGETRequest(url: Endpoints.getStudentLocation.url, apiType: "Parse", responseType: StudentLocationResponse.self) { (response, error) in
             if let response = response {
                 completion(response.results, nil)
             } else {
@@ -78,10 +78,8 @@ class UdacityClient {
             if let response = response, response.createdAt != nil {
                 Auth.ObjectId = response.objectId ?? ""
                 completion(true, nil)
-                print("we are in")
             } else {
                 completion(false, error)
-                print("error in addStudnetLocation")
             }
         }
     }
@@ -93,10 +91,8 @@ class UdacityClient {
         taskForPOSTRequest(url: Endpoints.updateStudentLocation.url, apiType: "Parse", responseType: UpdateLocationResponse.self, body: body,httpMethod: "PUT") { (response, error) in
             if let response = response, response.updatedAt != nil {
                 completion(true, nil)
-                ("we successfullfy updated info")
             } else {
                 completion(false, error)
-                print("cannot update info")
             }
         }
     }
@@ -111,7 +107,7 @@ class UdacityClient {
                 Auth.key = response.account.key
                 getData { (success, error) in
                     if success{
-                        print("Information obtained!")
+                        print("User Information Fetched")
                     }
                 }
                 completion(true, nil)
@@ -124,7 +120,7 @@ class UdacityClient {
     // MARK: Get User data (GET)
     
     class func getData(completion: @escaping (Bool,Error?) -> Void) {
-        taskForGETRequest(url: Endpoints.getData.url, apiType: "Udacity", responseType: userDataResponse.self) { (response, error) in
+        taskForGETRequest(url: Endpoints.getData.url, apiType: "Udacity", responseType: UserDataResponse.self) { (response, error) in
             if let response = response{
                 Auth.firstName = response.firstName
                 Auth.lastName = response.lastName
@@ -132,6 +128,7 @@ class UdacityClient {
                 completion(true, nil)
             } else {
                 completion(false, error)
+                print("Failed to get User Information")
             }
         }
     }
@@ -164,7 +161,6 @@ class UdacityClient {
     
     
    // MARK: Refactor GET and POST (Helper Functions)
-    
     
     class func taskForGETRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
@@ -209,8 +205,6 @@ class UdacityClient {
                 }
             task.resume()
         }
-    
-    
     
     class func taskForPOSTRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, body: String, httpMethod: String, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)

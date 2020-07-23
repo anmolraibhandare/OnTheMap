@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2656DC0724C68676006947EA /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0624C68676006947EA /* UdacityClient.swift */; };
-		2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0A24C75A30006947EA /* loginResponse.swift */; };
-		2656DC0F24C7B336006947EA /* userDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0E24C7B336006947EA /* userDataResponse.swift */; };
+		2656DC0B24C75A30006947EA /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0A24C75A30006947EA /* LoginResponse.swift */; };
+		2656DC0F24C7B336006947EA /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC0E24C7B336006947EA /* UserDataResponse.swift */; };
 		2656DC1224C89C68006947EA /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 2656DC1124C89C68006947EA /* FacebookLogin */; };
-		2656DC1424C8C7E8006947EA /* studentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1324C8C7E8006947EA /* studentLocationResponse.swift */; };
+		2656DC1424C8C7E8006947EA /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1324C8C7E8006947EA /* StudentLocationResponse.swift */; };
 		2656DC1624C8C86C006947EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1524C8C86C006947EA /* StudentLocation.swift */; };
 		2656DC1824C8CDD8006947EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1724C8CDD8006947EA /* MapViewController.swift */; };
 		2656DC1A24C8F62E006947EA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656DC1924C8F62E006947EA /* ListViewController.swift */; };
@@ -35,9 +35,9 @@
 
 /* Begin PBXFileReference section */
 		2656DC0624C68676006947EA /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
-		2656DC0A24C75A30006947EA /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
-		2656DC0E24C7B336006947EA /* userDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDataResponse.swift; sourceTree = "<group>"; };
-		2656DC1324C8C7E8006947EA /* studentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentLocationResponse.swift; sourceTree = "<group>"; };
+		2656DC0A24C75A30006947EA /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		2656DC0E24C7B336006947EA /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
+		2656DC1324C8C7E8006947EA /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
 		2656DC1524C8C86C006947EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		2656DC1724C8CDD8006947EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2656DC1924C8F62E006947EA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +76,9 @@
 		2656DC0824C68857006947EA /* Udacity Responses */ = {
 			isa = PBXGroup;
 			children = (
-				2656DC0A24C75A30006947EA /* loginResponse.swift */,
-				2656DC0E24C7B336006947EA /* userDataResponse.swift */,
-				2656DC1324C8C7E8006947EA /* studentLocationResponse.swift */,
+				2656DC0A24C75A30006947EA /* LoginResponse.swift */,
+				2656DC0E24C7B336006947EA /* UserDataResponse.swift */,
+				2656DC1324C8C7E8006947EA /* StudentLocationResponse.swift */,
 				2656DC1D24C91857006947EA /* PostLocationResponse.swift */,
 				2656DC1F24C91963006947EA /* UpdateLocationResponse.swift */,
 			);
@@ -254,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2656DC0B24C75A30006947EA /* loginResponse.swift in Sources */,
+				2656DC0B24C75A30006947EA /* LoginResponse.swift in Sources */,
 				2656DC1624C8C86C006947EA /* StudentLocation.swift in Sources */,
 				2656DC2024C91963006947EA /* UpdateLocationResponse.swift in Sources */,
 				2656DC0724C68676006947EA /* UdacityClient.swift in Sources */,
@@ -266,12 +266,12 @@
 				26C50DAE24C63D340014FBB6 /* AppDelegate.swift in Sources */,
 				2656DC2524C9F142006947EA /* FinishAddLocationViewController.swift in Sources */,
 				2656DC1824C8CDD8006947EA /* MapViewController.swift in Sources */,
-				2656DC0F24C7B336006947EA /* userDataResponse.swift in Sources */,
+				2656DC0F24C7B336006947EA /* UserDataResponse.swift in Sources */,
 				26C50DB024C63D340014FBB6 /* SceneDelegate.swift in Sources */,
 				2656DC2724C9F43F006947EA /* Location.swift in Sources */,
 				26C50DD224C648410014FBB6 /* LoginTextField.swift in Sources */,
 				2656DC1A24C8F62E006947EA /* ListViewController.swift in Sources */,
-				2656DC1424C8C7E8006947EA /* studentLocationResponse.swift in Sources */,
+				2656DC1424C8C7E8006947EA /* StudentLocationResponse.swift in Sources */,
 				2656DC1E24C91857006947EA /* PostLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

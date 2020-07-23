@@ -16,7 +16,7 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
     //MARK: Outlets and Properties
     
     @IBOutlet weak var mapView: MKMapView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var studentInformation: StudentLocation?
     
     //MARK: Life Cycle
@@ -40,18 +40,22 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
             displayLocation(location: studentLocation)
         }
     }
+
+    //MARK: Finish button tapped
     
     @IBAction func finishAddLocation(_ sender: Any) {
+        // If the student information is obtained post the new student info
         if let studentLocation = studentInformation {
             if UdacityClient.Auth.ObjectId == "" {
                 UdacityClient.addStudentLocation(location: studentLocation) { (success, error) in
                     if success {
                         DispatchQueue.main.async {
+                            // Dismiss if the information is successfully entered
                             self.dismiss(animated: true, completion: nil)
                         }
                     } else {
                         DispatchQueue.main.async {
-                            print("Error is occured in first loop")
+                            self.showLoginFailure(title: "Error", message: error?.localizedDescription ?? "")
                         }
                     }
                 }
@@ -65,7 +69,7 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
                             }
                         } else {
                             DispatchQueue.main.async {
-                                print("Error in 2nd loop")
+                                self.showLoginFailure(title: "Error", message: error?.localizedDescription ?? "")
                             }
                         }
                     }
@@ -79,6 +83,8 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+    
+    // MARK: Pull new location in the map
     
     private func pullCoordinate(location: Location) -> CLLocationCoordinate2D? {
         if let latitude = location.latitude, let longitude = location.longitude {
@@ -99,7 +105,7 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
             
         }
     }
-    
+        
     
     // MARK: - MKMapViewDelegate
 

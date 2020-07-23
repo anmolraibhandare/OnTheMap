@@ -87,7 +87,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                 self.performSegue(withIdentifier: "login", sender: nil)
             }
         } else {
-            showLoginFailure(message: error?.localizedDescription ?? "")
+            showLoginFailure(title: "Login Failed", message: error?.localizedDescription ?? "")
         }
     }
     
