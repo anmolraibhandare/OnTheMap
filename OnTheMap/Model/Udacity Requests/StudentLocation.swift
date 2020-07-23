@@ -12,8 +12,8 @@ struct StudentLocation: Codable {
     
     let objectId: String?
     let uniqueKey: String?
-    let firstName: String?
-    let lastName: String?
+    let firstName: String
+    let lastName: String
     let mapString: String?
     let mediaURL: String?
     let latitude: Double?
@@ -36,15 +36,16 @@ struct StudentLocation: Codable {
     
     // MARK: Combining first and last name of students
     var studentName: String {
-       var name = ""
-        if let firstName = firstName {
+        var name = ""
+        let space = " "
+        if !firstName.isEmpty {
             name = firstName
         }
-        if let lastName = lastName {
+        if !lastName.isEmpty {
             if name.isEmpty{
                 name = lastName
             } else {
-                name = name + "\(lastName)"
+                name = name + space + "\(lastName)"
             }
         }
         if name.isEmpty {

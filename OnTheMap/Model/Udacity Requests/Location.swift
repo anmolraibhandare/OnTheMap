@@ -24,6 +24,7 @@ struct Location: Codable {
     // MARK: Combining first and last name of students
     var studentName: String {
        var name = ""
+        let space = " "
         if let firstName = firstName {
             name = firstName
         }
@@ -31,7 +32,7 @@ struct Location: Codable {
             if name.isEmpty{
                 name = lastName
             } else {
-                name = name + "\(lastName)"
+                name = name + space + "\(lastName)"
             }
         }
         if name.isEmpty {

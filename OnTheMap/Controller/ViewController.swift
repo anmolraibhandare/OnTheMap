@@ -31,7 +31,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginButton = FBLoginButton()
-        loginButton.frame = CGRect(x: 35, y: 800, width: view.frame.width - 75, height: 45)
+        loginButton.frame = CGRect(x: 35, y: 775, width: view.frame.width - 75, height: 45)
         view.addSubview(loginButton)
         
         if let token = AccessToken.current {

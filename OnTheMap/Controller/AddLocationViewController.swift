@@ -95,7 +95,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         
         if let objectId = objectId {
             info["objectId"] = objectId as AnyObject
-            print(objectId)
+            print("object Id:: " + "\(objectId)")
         }
         return StudentLocation(info)
     }

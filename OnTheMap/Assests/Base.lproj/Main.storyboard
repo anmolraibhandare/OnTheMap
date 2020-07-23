@@ -300,12 +300,14 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jjo-Dk-2nz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="Fho-LQ-3YD" id="f7H-y7-wej"/>
+                                    <outletCollection property="gestureRecognizers" destination="lmD-Dm-pVM" appends="YES" id="NSw-Gq-8tP"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-vv-Up4" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
-                                <rect key="frame" x="36" y="779" width="343" height="45"/>
+                                <rect key="frame" x="36" y="775" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Finish">
@@ -331,6 +333,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wta-eR-SPI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="lmD-Dm-pVM"/>
             </objects>
             <point key="canvasLocation" x="5069.5652173913049" y="247.76785714285714"/>
         </scene>

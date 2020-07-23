@@ -51,7 +51,7 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
                         }
                     } else {
                         DispatchQueue.main.async {
-                            print("Error")
+                            print("Error is occured in first loop")
                         }
                     }
                 }
@@ -65,7 +65,7 @@ class FinishAddLocationViewController: UIViewController, MKMapViewDelegate {
                             }
                         } else {
                             DispatchQueue.main.async {
-                                print("Error")
+                                print("Error in 2nd loop")
                             }
                         }
                     }

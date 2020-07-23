@@ -51,13 +51,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 
-                let first = dictionary.firstName
-                let last = dictionary.lastName
+//                let first = dictionary.firstName
+//                let last = dictionary.lastName
+                let space = " "
+                let name = dictionary.firstName + space + dictionary.lastName
                 let mediaURL = dictionary.mediaURL
                 
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = coordinate
-                annotation.title = "\(first ?? "")\(last ?? "")"
+                annotation.title = "\(name)"
                 annotation.subtitle = mediaURL
     
                 self.annotations.append(annotation)

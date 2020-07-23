@@ -73,13 +73,15 @@ class UdacityClient {
     // MARK: Post Student Location (POST)
 
     class func addStudentLocation(location: StudentLocation, completion: @escaping (Bool, Error?) -> Void){
-        let body = "{\"uniqueKey\": \(location.uniqueKey ?? "")\", \"firstName\": \"\(location.lastName)\", \"lastName\": \"\(location.firstName)\",\"mapString\": \"\(location.mapString ?? "")\", \"mediaURL\": \"\(location.mediaURL ?? "")\",\"latitude\": \(location.latitude ?? 0.0), \"longitude\": \(location.longitude ?? 0.0)}"
+        let body = "{\"uniqueKey\": \"\(location.uniqueKey ?? "")\", \"firstName\": \"\(location.firstName)\", \"lastName\": \"\(location.lastName)\",\"mapString\": \"\(location.mapString ?? "")\", \"mediaURL\": \"\(location.mediaURL ?? "")\",\"latitude\": \(location.latitude ?? 0.0), \"longitude\": \(location.longitude ?? 0.0)}"
         taskForPOSTRequest(url: Endpoints.addStudentLocation.url, apiType: "Parse", responseType: PostLocationResponse.self, body: body, httpMethod: "POST") { (response, error) in
             if let response = response, response.createdAt != nil {
                 Auth.ObjectId = response.objectId ?? ""
                 completion(true, nil)
+                print("we are in")
             } else {
                 completion(false, error)
+                print("error in addStudnetLocation")
             }
         }
     }
@@ -87,12 +89,14 @@ class UdacityClient {
     // MARK: Putting a Student Location (PUT)
 
     class func updateStudentLocation(location: StudentLocation, completion: @escaping (Bool, Error?) -> Void){
-        let body = "{\"uniqueKey\": \(location.uniqueKey ?? "")\", \"firstName\": \"\(location.lastName)\", \"lastName\": \"\(location.firstName)\",\"mapString\": \"\(location.mapString ?? "")\", \"mediaURL\": \"\(location.mediaURL ?? "")\",\"latitude\": \(location.latitude ?? 0.0), \"longitude\": \(location.longitude ?? 0.0)}"
+        let body = "{\"uniqueKey\": \"\(location.uniqueKey ?? "")\", \"firstName\": \"\(location.firstName)\", \"lastName\": \"\(location.lastName)\",\"mapString\": \"\(location.mapString ?? "")\", \"mediaURL\": \"\(location.mediaURL ?? "")\",\"latitude\": \(location.latitude ?? 0.0), \"longitude\": \(location.longitude ?? 0.0)}"
         taskForPOSTRequest(url: Endpoints.updateStudentLocation.url, apiType: "Parse", responseType: UpdateLocationResponse.self, body: body,httpMethod: "PUT") { (response, error) in
             if let response = response, response.updatedAt != nil {
                 completion(true, nil)
+                ("we successfullfy updated info")
             } else {
                 completion(false, error)
+                print("cannot update info")
             }
         }
     }
