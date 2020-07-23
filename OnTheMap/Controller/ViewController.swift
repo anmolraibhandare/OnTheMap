@@ -36,8 +36,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
         
         if let token = AccessToken.current {
             // User is logged in, do work such as go to next view controller.
-            // Try to login with permissions
-            
             fetchprofile()
             goToDifferentView()
         }

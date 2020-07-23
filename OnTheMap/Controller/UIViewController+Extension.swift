@@ -14,7 +14,5 @@ extension UIViewController {
     @IBAction func addLocationButton(_ enabled: Bool, button: UIButton){
         performSegue(withIdentifier: "addLocationButton", sender: nil)
     }
-    
-    
-    
+
 }

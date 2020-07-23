@@ -285,26 +285,54 @@
                     <connections>
                         <outlet property="linkTextField" destination="5Qr-Q5-Mon" id="mvp-AC-xpX"/>
                         <outlet property="locationTextField" destination="VXC-7Y-EmO" id="Tgt-1A-QzW"/>
+                        <segue destination="Fho-LQ-3YD" kind="show" identifier="finishAddingLocation" id="eg9-xr-vdj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1T-uY-JUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4318.840579710145" y="244.41964285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Finish Add Location View Controller-->
         <scene sceneID="L2K-IW-vKz">
             <objects>
-                <viewController id="Fho-LQ-3YD" sceneMemberID="viewController">
+                <viewController id="Fho-LQ-3YD" customClass="FinishAddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dSl-ZT-dy6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jjo-Dk-2nz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-vv-Up4" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
+                                <rect key="frame" x="35" y="800" width="343" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="FInish">
+                                    <color key="titleColor" name="PrimaryLight"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishAddLocation:" destination="vxm-ks-AT1" eventType="touchUpInside" id="En1-kF-D0X"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jjo-Dk-2nz" secondAttribute="bottom" id="1em-UO-sfl"/>
+                            <constraint firstItem="jjo-Dk-2nz" firstAttribute="trailing" secondItem="Hu8-aJ-1bc" secondAttribute="trailing" id="9mK-qL-cX9"/>
+                            <constraint firstItem="jjo-Dk-2nz" firstAttribute="leading" secondItem="Hu8-aJ-1bc" secondAttribute="leading" id="Ii2-wt-PG1"/>
+                            <constraint firstItem="jjo-Dk-2nz" firstAttribute="top" secondItem="dSl-ZT-dy6" secondAttribute="top" id="WUe-w1-HUY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hu8-aJ-1bc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FKj-PZ-fB7"/>
+                    <connections>
+                        <outlet property="mapView" destination="jjo-Dk-2nz" id="Qkr-y1-VzJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wta-eR-SPI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vxm-ks-AT1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5070" y="248"/>
+            <point key="canvasLocation" x="5069.5652173913049" y="247.76785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LCD-1f-5QF">
@@ -395,7 +423,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BKm-Ws-NrQ"/>
+        <segue reference="jOP-it-dpW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
@@ -407,6 +435,9 @@
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="PrimaryDark">
             <color red="0.32100000977516174" green="0.69900000095367432" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
