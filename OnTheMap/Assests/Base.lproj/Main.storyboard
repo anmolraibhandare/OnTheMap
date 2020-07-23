@@ -237,7 +237,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="iYD-Pj-ssu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="location"/>
                                         <connections>
                                             <outlet property="delegate" destination="aPe-Dl-2FJ" id="MYh-zJ-AyS"/>
                                         </connections>
@@ -248,7 +248,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="uPU-MZ-bcG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" textContentType="url"/>
                                         <connections>
                                             <outlet property="delegate" destination="aPe-Dl-2FJ" id="fqW-4o-NyU"/>
                                         </connections>
@@ -264,8 +264,6 @@
                                         </state>
                                         <connections>
                                             <action selector="findAddLocation:" destination="aPe-Dl-2FJ" eventType="touchUpInside" id="oQv-MM-Dqo"/>
-                                            <action selector="findLocationActionButton:" destination="aPe-Dl-2FJ" eventType="touchUpInside" id="4TV-k3-hnv"/>
-                                            <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lYP-Uu-Gzq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -285,7 +283,7 @@
                     <connections>
                         <outlet property="linkTextField" destination="5Qr-Q5-Mon" id="mvp-AC-xpX"/>
                         <outlet property="locationTextField" destination="VXC-7Y-EmO" id="Tgt-1A-QzW"/>
-                        <segue destination="Fho-LQ-3YD" kind="show" identifier="finishAddingLocation" id="eg9-xr-vdj"/>
+                        <segue destination="Fho-LQ-3YD" kind="show" identifier="viewInMap" id="eg9-xr-vdj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1T-uY-JUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -295,7 +293,7 @@
         <!--Finish Add Location View Controller-->
         <scene sceneID="L2K-IW-vKz">
             <objects>
-                <viewController id="Fho-LQ-3YD" customClass="FinishAddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinishAddLocationViewController" id="Fho-LQ-3YD" customClass="FinishAddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dSl-ZT-dy6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,14 +302,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-vv-Up4" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
-                                <rect key="frame" x="35" y="800" width="343" height="45"/>
+                                <rect key="frame" x="36" y="779" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="FInish">
                                     <color key="titleColor" name="PrimaryLight"/>
                                 </state>
                                 <connections>
-                                    <action selector="finishAddLocation:" destination="vxm-ks-AT1" eventType="touchUpInside" id="En1-kF-D0X"/>
+                                    <action selector="finishAddLocation:" destination="Fho-LQ-3YD" eventType="touchUpInside" id="HQ5-Ak-eKK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -330,7 +328,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wta-eR-SPI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="vxm-ks-AT1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5069.5652173913049" y="247.76785714285714"/>
         </scene>

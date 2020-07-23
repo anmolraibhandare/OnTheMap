@@ -77,7 +77,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     // MARK: Send Info to FinalController
     
     private func placeNewLocation(_ coordinate: CLLocationCoordinate2D) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "finishAddingLocation") as! FinishAddLocationViewController
+        let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddLocationViewController") as! FinishAddLocationViewController
         controller.studentInformation = createStudentInfo(coordinate)
         self.navigationController?.pushViewController(controller, animated: true)
         
