@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import FBSDKLoginKit
+import FacebookLogin
 
 class ViewController: UIViewController, LoginButtonDelegate {
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
+        print("Logged out of Facebook Acoount")
     }
     func loginButtonWillLogin(_ loginButton: FBLoginButton) -> Bool {
         return true
@@ -34,17 +34,27 @@ class ViewController: UIViewController, LoginButtonDelegate {
         loginButton.frame = CGRect(x: 35, y: 800, width: view.frame.width - 75, height: 45)
         view.addSubview(loginButton)
         
-        if let token = AccessToken.current,
-            !token.isExpired {
-            let token = token.tokenString
-            let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields" : "email, name"], tokenString: token, version: nil, httpMethod: .get)
-            request.start { (connection, result, error) in
-                print("\(result ?? "")")
-            }
+        if let token = AccessToken.current {
             // User is logged in, do work such as go to next view controller.
+            // Try to login with permissions
+            
+            fetchprofile()
+            goToDifferentView()
+        }
+        loginButton.permissions = ["public_profile", "email"]
+    }
+    
+    func goToDifferentView() {
+        self.performSegue(withIdentifier: "login", sender: self)
+    }
+    
+    func fetchprofile() {
+        print("Fetch Profile")
+        let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields" : "email, name"])
+        request.start { (connection, result, error) in
+            print("\(result ?? "")")
         }
         
-        loginButton.permissions = ["public_profile", "email"]
     }
     
     override func viewWillAppear(_ animated: Bool) {

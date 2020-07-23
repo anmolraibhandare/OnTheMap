@@ -25,8 +25,8 @@ class UdacityClient {
         case signUp
         case getData
         case getStudentLocation
-        case addlocation
-        case updateLocation
+        case addStudentLocation
+        case updateStudentLocation
         
         // String values of Endpoints including base and apiKeyParam
         var stringValue: String {
@@ -44,10 +44,10 @@ class UdacityClient {
             case .getStudentLocation:
                 return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
                 
-            case .addlocation:
+            case .addStudentLocation:
                 return Endpoints.base + "/StudentLocation"
                 
-            case .updateLocation:
+            case .updateStudentLocation:
                 return Endpoints.base + "/StudentLocation/" + Auth.ObjectId
 
             }
@@ -69,44 +69,39 @@ class UdacityClient {
             }
         }
     }
-
+//
 //    // MARK: Post Student Location (POST)
 //
-//    var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!)
-//    request.httpMethod = "POST"
-//    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//    request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
-//    let session = URLSession.shared
-//    let task = session.dataTask(with: request) { data, response, error in
-//      if error != nil { // Handle error…
-//          return
-//      }
-//      print(String(data: data!, encoding: .utf8)!)
+//    class func addStudentLocation(location: StudentLocation, completion: @escaping (Bool, Error?) -> Void){
+//        let body = "{\"uniqueKey\": \(location.uniqueKey ?? "")\", \"firstName\": \"\(location.lastName)\", \"lastName\": \"\(location.firstName)\",\"mapString\": \"\(location.mapString ?? "")\", \"mediaURL\": \"\(location.mediaURL ?? "")\",\"latitude\": \(location.latitude ?? 0.0), \"longitude\": \(location.longitude ?? 0.0)}"
+//        taskForPOSTRequest(url: Endpoints.addStudentLocation.url, apiType: "Parse", responseType: PostLocationResponse.self, body: body, httpMethod: "POST") { (response, error) in
+//            if let response = response, response.createdAt != nil {
+//                Auth.ObjectId = response.objectId ?? ""
+//                completion(true, nil)
+//            } else {
+//                completion(false, error)
+//            }
+//        }
 //    }
-//    task.resume()
 //
 //    // MARK: Putting a Student Location (PUT)
 //
-//    let urlString = "https://onthemap-api.udacity.com/v1/StudentLocation/8ZExGR5uX8"
-//    let url = URL(string: urlString)
-//    var request = URLRequest(url: url!)
-//    request.httpMethod = "PUT"
-//    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//    request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: .utf8)
-//    let session = URLSession.shared
-//    let task = session.dataTask(with: request) { data, response, error in
-//      if error != nil { // Handle error…
-//          return
-//      }
-//      print(String(data: data!, encoding: .utf8)!)
+//    class func updateStudentLocation(location: StudentLocation, completion: @escaping (Bool, Error?) -> Void){
+//        let body = "{\"uniqueKey\": \(location.uniqueKey ?? "")\", \"firstName\": \"\(location.lastName)\", \"lastName\": \"\(location.firstName)\",\"mapString\": \"\(location.mapString ?? "")\", \"mediaURL\": \"\(location.mediaURL ?? "")\",\"latitude\": \(location.latitude ?? 0.0), \"longitude\": \(location.longitude ?? 0.0)}"
+//        taskForPOSTRequest(url: Endpoints.updateStudentLocation.url, apiType: "Parse", responseType: UpdateLocationResponse.self, body: body,httpMethod: "PUT") { (response, error) in
+//            if let response = response, response.updatedAt != nil {
+//                completion(true, nil)
+//            } else {
+//                completion(false, error)
+//            }
+//        }
 //    }
-//    task.resume()
     
     // MARK: Login (POST)
     
     class func login(email: String, password: String, completion: @escaping (Bool,Error?) -> Void) {
         let body = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
-        taskForPOSTRequest(url: Endpoints.login.url, apiType: "Udacity", responseType: LoginResponse.self, body: body) { (response, error) in
+        taskForPOSTRequest(url: Endpoints.login.url, apiType: "Udacity", responseType: LoginResponse.self, body: body, httpMethod: "POST") { (response, error) in
             if let response = response {
                 Auth.sessionId = response.session.id
                 Auth.key = response.account.key
@@ -157,6 +152,8 @@ class UdacityClient {
           let range = 5..<data!.count
           let newData = data?.subdata(in: range) /* subset response data! */
           print(String(data: newData!, encoding: .utf8)!)
+            Auth.sessionId = ""
+            completion()
         }
         task.resume()
     }
@@ -165,15 +162,15 @@ class UdacityClient {
    // MARK: Refactor GET and POST (Helper Functions)
     
     
-    class func taskForGETRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         if apiType == "Udacity" {
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         } else {
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "X-Parse-Application-Id")
+            request.addValue("application/json", forHTTPHeaderField: "X-Parse-REST-API-Key")
         }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if error != nil { // Handle error…
@@ -207,15 +204,17 @@ class UdacityClient {
                     }
                 }
             task.resume()
-                
-            return task
         }
     
-
     
-    class func taskForPOSTRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, body: String, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
+    
+    class func taskForPOSTRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, body: String, httpMethod: String, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        if httpMethod == "POST" {
+            request.httpMethod = "POST"
+        } else {
+            request.httpMethod = "PUT"
+        }
         if apiType == "Udacity" {
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -255,9 +254,10 @@ class UdacityClient {
             }
         }
         task.resume()
-        
-        return task
     }
+    
+    
+    
 }
 
 
