@@ -80,8 +80,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddLocationViewController") as! FinishAddLocationViewController
         controller.studentInformation = createStudentInfo(coordinate)
         self.navigationController?.pushViewController(controller, animated: true)
-        
-        
     }
     
     private func createStudentInfo(_ coordinate: CLLocationCoordinate2D) -> StudentLocation {

@@ -32,7 +32,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="aAp-0y-7rs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qEq-3X-VVI" customClass="LoginTextField" customModule="OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="77" width="343" height="43"/>
@@ -248,7 +248,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="uPU-MZ-bcG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="url"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                         <connections>
                                             <outlet property="delegate" destination="aPe-Dl-2FJ" id="fqW-4o-NyU"/>
                                         </connections>
@@ -300,12 +300,15 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jjo-Dk-2nz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Fho-LQ-3YD" id="f7H-y7-wej"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-vv-Up4" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="36" y="779" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="FInish">
+                                <state key="normal" title="Finish">
                                     <color key="titleColor" name="PrimaryLight"/>
                                 </state>
                                 <connections>
