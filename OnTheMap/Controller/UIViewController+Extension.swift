@@ -26,15 +26,6 @@ extension UIViewController {
             }
         }
     }
-    // MARK: Enable buttons
-    
-    func enableButton(_ enabled: Bool, button: UIButton) {
-        if enabled{
-            button.isEnabled = true
-        } else {
-            button.isEnabled = false
-        }
-    }
     
     //MARK: Show alerts
     
